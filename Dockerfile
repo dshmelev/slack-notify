@@ -1,5 +1,8 @@
-FROM debian:jessie-slim
-RUN apt-get update && apt-get install -y ca-certificates
+FROM alpine:3.6
+
+RUN apk --no-cache update && \
+    apk --no-cache add ca-certificates && \
+    rm -rf /var/cache/apk/*
 
 COPY rootfs /
 
